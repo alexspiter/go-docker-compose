@@ -3,8 +3,6 @@
 ###################################################
 FROM golang:alpine as env
 
-WORKDIR /app
-
 # Add support for Delve debugger.
 RUN apk add --no-cache ca-certificates git
 RUN go get github.com/derekparker/delve/cmd/dlv

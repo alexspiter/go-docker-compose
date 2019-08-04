@@ -10,6 +10,11 @@ services:
       - "2345:2345" # Expose Delve debugger port.
     volumes:
       - ./app:/app # Mount source code inside the container.
+      # To make it work with GOPATH, uncomment line below INSTEAD of the line above.
+      #- ./app:/go/src/go-docker-compose/app
+    working_dir: /app
+    # To make it work with GOPATH, uncomment line below INSTEAD of the line above.
+    #working_dir: /go/src/go-docker-compose/app
     command: ["go", "run", "main.go"]
     security_opt:
       - "seccomp:unconfined" # Extra option to allow debugging.
