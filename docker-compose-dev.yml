@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  app:
+    build:
+      context: ./
+      target: env
+    image: app-dev:latest
+    ports:
+      - "2345:2345" # Expose Delve debugger port.
+    volumes:
+      - ./app:/app # Mount source code inside the container.
+    command: ["go", "run", "main.go"]
+    security_opt:
+      - "seccomp:unconfined" # Extra option to allow debugging.
+    cap_add:
+      - SYS_PTRACE # Recommended option for debugging only.
