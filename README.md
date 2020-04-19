@@ -1,5 +1,5 @@
 # go-docker-compose
-Advanced Docker Compose template for Go projects.
+A sample of optimized docker-compose template for local development.
 
 Read [an article] in our blog for more details.
 
